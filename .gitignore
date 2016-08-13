@@ -1,0 +1,10 @@
+#typescript file
+*.js
+*.js.map
+
+node_modules/
+typings/
+
+#log
+*.log
+*.log.*
