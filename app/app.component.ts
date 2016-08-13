@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
+
 import { Hero } from './hero';
+import { HeroService } from './hero.service';
+// OnInit Interface => ngOnInit Lifecycle Hook to get heroes when AppComponent activates
+import { OnInit } from '@angular/core';
 
 
 @Component({
+  //DOM tag name
   selector: 'my-app',
   template: `
   <h1>{{title}}</h1>
@@ -64,27 +69,40 @@ import { Hero } from './hero';
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
   }
-`]
+`],
+//define the source of DI 
+  providers: [HeroService]
+
 
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
+
+  //DI with constructor 
+  //simultaneously private field heroService is created, inject by HeroService
+  constructor(private heroService : HeroService){ }
+
   title = "Tour of Heroes";
   selectedHero : Hero;
-  public heroes = HEROES;
+  //public heroes = this.heroService.getHeroes();
+  heroes: Hero[];
 
-  onSelect(hero: Hero) {this.selectedHero = hero;}
+  onSelect(hero: Hero) {
+    this.selectedHero = hero;
+  }
+  //Angular will call it at right time
+  ngOnInit(){
+    this.getHeroes();
+    //this.getHeroesSlowly();
+  }
+  //when the Promise resolves successfully, thwn we will have heroes to display
+  getHeroes() {
+    this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+  }
+
+  getHeroesSlowly() {
+    this.heroService.getHeroesSlowly().then(heroes => this.heroes = heroes);
+  }
+
  }
 
-const HEROES: Hero[] = [
-  { id: 11, name: 'Mr. Nice' },
-  { id: 12, name: 'Narco' },
-  { id: 13, name: 'Bombasto' },
-  { id: 14, name: 'Celeritas' },
-  { id: 15, name: 'Magneta' },
-  { id: 16, name: 'RubberMan' },
-  { id: 17, name: 'Dynama' },
-  { id: 18, name: 'Dr IQ' },
-  { id: 19, name: 'Magma' },
-  { id: 20, name: 'Tornado' }
-];
