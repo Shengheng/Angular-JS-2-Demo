@@ -10,7 +10,7 @@ export class HeroService {
     //}
 
     //promise ==> call us back later when the results are ready <asychronous way for remote serive>
-    getHeroes(){
+    getHeroes() {
         return Promise.resolve(HEROES);
     }
 
@@ -20,5 +20,11 @@ export class HeroService {
             setTimeout(() => resolve(HEROES), 5000) // 2 seconds
         );
     }
+    //url routing get by id
+    getHero(id: number) {
+        return this.getHeroes()
+            .then(heroes => heroes.find(hero => hero.id === id));
+    }
+
 
 }
