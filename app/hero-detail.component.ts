@@ -14,7 +14,6 @@ import { Hero } from './hero';
             </div>
         </div>  
         `
-
 })
 
 export class HeroDetailComponent{
