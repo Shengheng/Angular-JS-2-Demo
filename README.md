@@ -31,6 +31,10 @@
 		* Component <---- DOM (event) = "handler function"
 		* COmponent <---> DOM [(ng-module)] = "property"
 * Directives
+	* Angular template are dynamic. When Angular renders target template, DOM structure/attribute is built based on the instructions given by __directives__.
+	* Component --> directive with a template
+	* Structural directive --> alter DOM layout  ==> *ngFor / *ngIf
+	* Attribute directive --> alter appearance or behavior of an existing element ==> ngModel two-way binding
 * Services
 * Dependency Injection
 * Pipes
