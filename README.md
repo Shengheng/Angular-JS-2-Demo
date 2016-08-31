@@ -13,7 +13,7 @@
 	    * bootstrap --> root module only to identify main view (_root component_)
 
 * Components
-    * Controls UI widget (view) of one web page 
+    * Controls UI widget (view) of web page 
 * Templates
     * Angular interactived HTML 
 * MetaData
