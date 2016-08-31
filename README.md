@@ -36,7 +36,18 @@
 	* Structural directive --> alter DOM layout  ==> *ngFor / *ngIf
 	* Attribute directive --> alter appearance or behavior of an existing element ==> ngModel two-way binding
 * Services
+	* Component should be as simple as possible and only enable the user experience. Therefore, services do complicated logics. 
+	* Examples: 
+		* logging service
+		* data service
+		* message bus
+		* application configuration
 * Dependency Injection
+	* Supply a new instance of a class(service mostly) to the target component
+	* Format: construct(_private_ service: _HeroService_){ }
+	* Pre-request: 
+		* __Injector__ maintains a container of service instances and instantiates required & _registered_ service classes
+		* __provider__ (in root module level or current component level) workes as a recipe and registers service with Injector
 * Pipes
 * Router
 
