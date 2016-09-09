@@ -1,3 +1,4 @@
+//THIS FILE IS OBSOLETE
 import { Hero } from './hero';
 
 export const HEROES: Hero[] = [
